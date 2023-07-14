@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'master', url: 'https://https://github.com/snnamani/mwa.git'
+        //git branch: 'master', url: 'https://github.com/steph-nnamani/ci-cd-with-docker-argocd.git'
       }
     }
     stage('Build and Test') {
@@ -31,7 +31,7 @@ pipeline {
     stage('Build and Push Docker Image to imageRegistry') {
       environment {
         DOCKER_IMAGE = "zaralink/ultimate-cicd:${BUILD_NUMBER}"
-        // DOCKERFILE_LOCATION = "https://github.com/snnamani/mwa/Dockerfile"
+        // DOCKERFILE_LOCATION = "https://github.com/steph-nnamani/ci-cd-with-docker-argocd/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-cred')
       }
     steps {

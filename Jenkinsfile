@@ -52,14 +52,17 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "steph.nnamani@gmail.com"
-                    git config user.name "Stephen Nnamani"
-                    BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" steph-nnamani/bug-squa-deploy/deployment.yaml 
-                    git add steph-nnamani/bug-squa-deploy/deployment.yaml
-                    git commit -m "Updated deployment image to version ${BUILD_NUMBER}"
-                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
-                '''
+    echo "Working Directory: $(pwd)"
+    echo "Contents of personal-container-artifactory directory:"
+    ls -la personal-container-artifactory
+    echo "Replacing image tag..."
+    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" personal-container-artifactory/deployment.yml 
+    echo "Contents of personal-container-artifactory directory after replacement:"
+    ls -la personal-container-artifactory
+    git add personal-container-artifactory/deployment.yml
+    git commit -m "Updated deployment image to version ${BUILD_NUMBER}"
+    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+'''
             }
          }
        }

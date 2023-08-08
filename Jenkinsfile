@@ -1,8 +1,9 @@
 pipeline {
   agent {
     docker {
-      image 'zaralink/maven-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+      image 'zaralink/bugsquashers-build-agent:1.0'
+      //image 'zaralink/maven-docker-agent:v1'
+      //args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
   stages {

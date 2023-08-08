@@ -31,8 +31,8 @@ pipeline {
     stage('Build and Push Docker Image to imageRegistry') {
       environment {
         DOCKER_IMAGE = "zaralink/ultimate-cicd:${BUILD_NUMBER}"
-         DOCKERFILE_LOCATION = "https://github.com/steph-nnamani/ci-cd-with-docker-argocd/Dockerfile"
-        REGISTRY_CREDENTIALS = credentials('docker-cred')
+         //DOCKERFILE_LOCATION = "https://github.com/steph-nnamani/ci-cd-with-docker-argocd/Dockerfile"
+        REGISTRY_CREDENTIALS = credentials('docker_cred')
       }
     steps {
         script {

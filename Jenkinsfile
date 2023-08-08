@@ -52,9 +52,8 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-    echo "Working Directory: $(pwd)"
-    echo "Contents of personal-container-artifactory directory:"
-    ls -la personal-container-artifactory
+    git config user.email "steph.nnamani@gmail.com"
+    git config user.name "Stephen Nnamani" 
     echo "Replacing image tag..."
     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" personal-container-artifactory/deployment.yml 
     echo "Contents of personal-container-artifactory directory after replacement:"

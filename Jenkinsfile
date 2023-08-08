@@ -55,9 +55,9 @@ pipeline {
     git config user.email "steph.nnamani@gmail.com"
     git config user.name "Stephen Nnamani" 
     echo "Replacing image tag..."
-    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" personal-container-artifactory/deployment.yml 
+    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" /deployment.yml 
     echo "Contents of personal-container-artifactory directory after replacement:"
-    ls -la personal-container-artifactory
+    //ls -la personal-container-artifactory
     git add personal-container-artifactory/deployment.yml
     git commit -m "Updated deployment image to version ${BUILD_NUMBER}"
     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main

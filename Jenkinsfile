@@ -46,7 +46,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "personal-container-artifactory"
+            GIT_REPO_NAME = "steph-nnamani/personal-container-artifactory"
             GIT_USER_NAME = "steph-nnamani"
         }
         steps {

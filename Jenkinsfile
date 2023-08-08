@@ -47,12 +47,12 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "personal-container-artifactory"
-            GIT_USER_NAME = "snnamani"
+            GIT_USER_NAME = "steph-nnamani"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "stephennnamani@yahoo.com"
+                    git config user.email "steph.nnamani@gmail.com"
                     git config user.name "Stephen Nnamani"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" personal-container-artifactory/deployment.yml

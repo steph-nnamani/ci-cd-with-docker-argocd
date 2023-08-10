@@ -47,7 +47,7 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "ci-cd-with-docker-argocd"
-            GIT_USER_NAME = "steph-nnamani"
+            GIT_USER_NAME = "Steph-nnamani"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {

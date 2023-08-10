@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: teslaweb
-        image: zaralink/ultimate-cicd:replaceImageTag
+        image: zaralink/ultimate-cicd:5
         ports:
         - containerPort: 8080
